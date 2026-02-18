@@ -1,4 +1,5 @@
 import ProdutoCard from "../components/ProdutoCard";
+import "../styles/produtos.css";
 
 function Produtos() {
 
@@ -18,14 +19,10 @@ function Produtos() {
   ];
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="produtos-container">
       <h1>Produtos</h1>
-
-      <div style={{
-        display: "flex",
-        gap: "20px",
-        flexWrap: "wrap"
-      }}>
+  
+      <div className="produtos-grid">
         {listaProdutos.map((produto) => (
           <ProdutoCard key={produto.id} produto={produto} />
         ))}
