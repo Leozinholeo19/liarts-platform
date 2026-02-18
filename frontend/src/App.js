@@ -7,20 +7,23 @@ import Produtos from "./pages/Produtos";
 import Personalizacao from "./pages/Personalizacao";
 import Carrinho from "./pages/Carrinho";
 import Navbar from "./components/Navbar";
+import { CarrinhoProvider } from "./context/CarrinhoContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/produtos" element={<Produtos />} />
-        <Route path="/personalizar/:id" element={<Personalizacao />} />
-        <Route path="/carrinho" element={<Carrinho />} />
-      </Routes>
-    </BrowserRouter>
+    <CarrinhoProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/produtos" element={<Produtos />} />
+          <Route path="/personalizar/:id" element={<Personalizacao />} />
+          <Route path="/carrinho" element={<Carrinho />} />
+        </Routes>
+      </BrowserRouter>
+    </CarrinhoProvider>  
   );
 }
 

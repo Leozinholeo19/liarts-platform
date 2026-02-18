@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CarrinhoContext } from "../context/CarrinhoContext";
 
 function Personalizacao() {
   const { id } = useParams();
+  const { adicionarAoCarrinho } = useContext(CarrinhoContext);
 
   const listaProdutos = [
     {
@@ -20,7 +22,6 @@ function Personalizacao() {
   ];
 
   const produto = listaProdutos.find(p => p.id === Number(id));
-
   const [corSelecionada, setCorSelecionada] = useState("Branco");
 
   if (!produto) {
@@ -30,50 +31,65 @@ function Personalizacao() {
   return (
     <div style={{ padding: "40px" }}>
       <h1 style={{ marginBottom: "30px" }}>Personalização</h1>
-  
-      <div style={{
-        display: "flex",
-        gap: "40px"
-      }}>
+
+      <div style={{ display: "flex", gap: "40px" }}>
         
         {/* Lado Esquerdo */}
         <div style={{ flex: 1 }}>
           <h2>{produto.nome}</h2>
           <p>{produto.descricao}</p>
           <p><strong>R$ {produto.preco}</strong></p>
-  
+
           <h3 style={{ marginTop: "20px" }}>
             Cor selecionada: {corSelecionada}
           </h3>
-  
+
           <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-            <button onClick={() => setCorSelecionada("Vermelho")}>Vermelho</button>
-            <button onClick={() => setCorSelecionada("Azul")}>Azul</button>
-            <button onClick={() => setCorSelecionada("Preto")}>Preto</button>
+            <button onClick={() => setCorSelecionada("Vermelho")}>
+              Vermelho
+            </button>
+            <button onClick={() => setCorSelecionada("Azul")}>
+              Azul
+            </button>
+            <button onClick={() => setCorSelecionada("Preto")}>
+              Preto
+            </button>
           </div>
-  
-          <button style={{
-            marginTop: "30px",
-            padding: "10px 20px",
-            cursor: "pointer"
-          }}>
+
+          <button
+            style={{
+              marginTop: "30px",
+              padding: "10px 20px",
+              cursor: "pointer"
+            }}
+            onClick={() =>
+              adicionarAoCarrinho({
+                id: produto.id,
+                nome: produto.nome,
+                preco: produto.preco,
+                cor: corSelecionada
+              })
+            }
+          >
             Adicionar ao Carrinho
           </button>
         </div>
-  
+
         {/* Lado Direito */}
-        <div style={{
-          flex: 1,
-          height: "400px",
-          backgroundColor: "#ddd",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: "8px"
-        }}>
+        <div
+          style={{
+            flex: 1,
+            height: "400px",
+            backgroundColor: "#ddd",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "8px"
+          }}
+        >
           Área reservada para visualização 3D
         </div>
-  
+
       </div>
     </div>
   );
