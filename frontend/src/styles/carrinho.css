@@ -1,0 +1,31 @@
+.carrinho-container {
+    padding: 40px;
+  }
+  
+  .carrinho-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  
+  .carrinho-info h3 {
+    margin: 0;
+  }
+  
+  .botao-remover {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .botao-remover:hover {
+    background-color: #c62828;
+  }
