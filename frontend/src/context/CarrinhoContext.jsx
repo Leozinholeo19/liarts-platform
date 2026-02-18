@@ -9,8 +9,19 @@ export function CarrinhoProvider({ children }) {
     setCarrinho([...carrinho, item]);
   };
 
+  const removerDoCarrinho = (index) => {
+    const novoCarrinho = carrinho.filter((_, i) => i !== index);
+    setCarrinho(novoCarrinho);
+  };
+
   return (
-    <CarrinhoContext.Provider value={{ carrinho, adicionarAoCarrinho }}>
+    <CarrinhoContext.Provider
+      value={{
+        carrinho,
+        adicionarAoCarrinho,
+        removerDoCarrinho
+      }}
+    >
       {children}
     </CarrinhoContext.Provider>
   );
