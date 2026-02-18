@@ -13,7 +13,7 @@ function ProdutoCard({ produto }) {
       <p>{produto.descricao}</p>
       <p><strong>R$ {produto.preco}</strong></p>
 
-      <Link to="/personalizar">
+      <Link to={`/personalizar/${produto.id}`}>
         <button style={{
           padding: "8px 12px",
           cursor: "pointer"

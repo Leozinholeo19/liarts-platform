@@ -17,7 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/produtos" element={<Produtos />} />
-        <Route path="/personalizar" element={<Personalizacao />} />
+        <Route path="/personalizar/:id" element={<Personalizacao />} />
         <Route path="/carrinho" element={<Carrinho />} />
       </Routes>
     </BrowserRouter>
