@@ -8,6 +8,7 @@ import Personalizacao from "./pages/Personalizacao";
 import Carrinho from "./pages/Carrinho";
 import Navbar from "./components/Navbar";
 import { CarrinhoProvider } from "./context/CarrinhoContext";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/personalizar/:id" element={<Personalizacao />} />
           <Route path="/carrinho" element={<Carrinho />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </CarrinhoProvider>  
   );
