@@ -1,0 +1,28 @@
+:root {
+    --cor-primaria: #c97aa3;      /* rosa suave */
+    --cor-secundaria: #f3e5ec;    /* rosa bem claro */
+    --cor-destaque: #a64d79;      /* rosa mais forte */
+    --cor-texto: #333;
+    --cor-fundo: #faf7f9;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+  }
+  
+  button {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: var(--cor-destaque);
+  }
+  
